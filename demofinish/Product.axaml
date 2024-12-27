@@ -4,8 +4,47 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="demofinish.Product"
+		x:CompileBindings="False"
         Title="Product">
-	
-	
-	
-	</Window>
+	<DockPanel>
+		<StackPanel HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    DockPanel.Dock="Top"
+                    Spacing="10"
+                    Height="50">
+			<TextBox Width="200" x:Name="SearchTextBox"/>
+			<ComboBox VerticalAlignment="Center" Width="100" x:Name="SortComboBox"/>
+			<ComboBox VerticalAlignment="Center" Width="100" x:Name="FilterCombobox"/>
+			<TextBlock VerticalAlignment="Center" x:Name="CountRowTextBlock"/>
+			<Button x:Name="AddProductButton" Content="Создать продукт"/>
+		</StackPanel>
+		<StackPanel HorizontalAlignment="Center"
+                    Orientation="Horizontal"
+                    DockPanel.Dock="Bottom" Height="40">
+			<Button x:Name="OpenOrderHistory" Content="Открыть историю заказов"/>
+		</StackPanel>
+		<ListBox x:Name="ProductListBox">
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<UniformGrid Columns="1"></UniformGrid>
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border BorderBrush="Gray" BorderThickness="1" Padding="10">
+						<StackPanel Orientation="Horizontal" Spacing="10">
+							<Image Width="100" Height="100" Source="{Binding Image}" VerticalAlignment="Center"/>
+							<StackPanel VerticalAlignment="Center" Spacing="5">
+								<TextBlock Text="{Binding Productname}" FontWeight="Bold" FontSize="16"/>
+								<TextBlock Text="{Binding Productdescription}" TextWrapping="Wrap"/>
+								<TextBlock Text="{Binding Productdiscountamount, StringFormat='Скидка: {0}%'}"/>
+								<TextBlock Text="{Binding Productmanufacturer, StringFormat='Производитель: {0}'}"/>
+								<TextBlock Text="{Binding Productcost, StringFormat='Цена: {0:C}'}"/>
+							</StackPanel>
+						</StackPanel>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</DockPanel>
+</Window>
