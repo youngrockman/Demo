@@ -9,6 +9,7 @@ using System.Linq;
 using Avalonia.Data;
 using Avalonia.Interactivity;
 using System;
+using System.Globalization;
 
 namespace demofinish
 {
@@ -22,6 +23,13 @@ namespace demofinish
             InitializeComponent();
             LoadProducts();
             SetupEventHandlers();
+            InitializeComboBoxes();
+        }
+
+        private void InitializeComboBoxes()
+        {
+            SortComboBox.SelectedIndex = 0;
+            FilterCombobox.SelectedIndex = 0;
         }
 
         private void LoadProducts()
@@ -141,7 +149,7 @@ namespace demofinish
 
             public bool IsDiscounted => Productdiscountamount > 0;
 
-            public IBrush BackgroundColor => Productdiscountamount > 15 ? Brushes.LightGreen : Brushes.Transparent;
+            public IBrush BackgroundColor => Productdiscountamount > 15 ? Brush.Parse("#7fff00") : Brushes.Transparent;
         }
     }
 }

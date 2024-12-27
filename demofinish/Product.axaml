@@ -13,8 +13,17 @@
                     Spacing="10"
                     Height="50">
 			<TextBox Width="200" x:Name="SearchTextBox"/>
-			<ComboBox VerticalAlignment="Center" Width="100" x:Name="SortComboBox"/>
-			<ComboBox VerticalAlignment="Center" Width="100" x:Name="FilterCombobox"/>
+			<ComboBox VerticalAlignment="Center" Width="100" x:Name="SortComboBox">
+				<ComboBoxItem Content="Без сортировки"/>
+				<ComboBoxItem Content="По возрастанию"/>
+				<ComboBoxItem Content="По убыванию"/>
+			</ComboBox>
+			<ComboBox VerticalAlignment="Center" Width="100" x:Name="FilterCombobox">
+				<ComboBoxItem Content="Все диапазоны"/>
+				<ComboBoxItem Content="0-9,99%"/>
+				<ComboBoxItem Content="10-14,99%"/>
+				<ComboBoxItem Content="15% и более"/>
+			</ComboBox>
 			<TextBlock VerticalAlignment="Center" x:Name="CountRowTextBlock"/>
 			<Button x:Name="AddProductButton" Content="Создать продукт"/>
 		</StackPanel>
